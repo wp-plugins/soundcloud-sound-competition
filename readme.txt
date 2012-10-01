@@ -13,9 +13,9 @@ Host your own remix competition all within your wordpress site all integrated wi
 
 == Description ==
 
-[SoundCloud Sound Competition plugin for Wordpress ](http://webhjelpen.no/wordpress-plugins/host-soundcloud-sound-contest-in-wordpress/) has been created to let you host your own remix competition without thinking about storage space, it's all integrated with SoundCloud so that all remixes are stored there.
+[SoundCloud Sound Competition plugin for Wordpress ](http://webhjelpen.no/wordpress-plugin/soundcloud-sound-contest/) has been created to let you host your own remix competition without thinking about storage space, it's all integrated with SoundCloud so that all remixes are stored there.
 
-For video preview of the plugin - http://webhjelpen.no/wordpress-plugins/host-soundcloud-sound-contest-in-wordpress/
+For video preview of the plugin - http://webhjelpen.no/wordpress-plugin/soundcloud-sound-contest/
 
 Just make your own app in Soundcloud and add the parameters within your settings and you are good to go.
 
@@ -27,7 +27,7 @@ You can chose the database slug when a competition has come to an end and you wa
 Once installed, the authorization process is easy -
 
 Recomended to watch the two youtube videoes here for setup:
-http://webhjelpen.no/wordpress-plugins/host-soundcloud-sound-contest-in-wordpress/
+http://webhjelpen.no/wordpress-plugin/soundcloud-sound-contest/
 
 
 1. When you first access the plugin’s options page, you will have to fill in setting of you app.
