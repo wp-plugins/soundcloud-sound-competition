@@ -1,10 +1,10 @@
 <?php
 /*
 Plugin Name: SoundCloud Sound Competition
-Plugin URI: http://webhjelpen.no/wordpress-plugin/soundcloud-sound-contest/
+Plugin URI: http://webhjelpen.no/wordpress-plugins/host-soundcloud-sound-contest-in-wordpress/
 Description: Host your own Sound Contest integrated with SoundCloud, users connect easy with SoundCloud to choose track to add to your competition. Everything within your WordPress web site.
 Author: Kenneth Berentzen
-Author URI: http://webhjelpen.no/wordpress-plugin/
+Author URI: http://webhjelpen.no/wordpress-plugins/
 License: Copyright 2012  Kenneth Berentzen  (email : berentzen@gmail.com)
 
 		This program is free software; you can redistribute it and/or modify
@@ -38,6 +38,7 @@ global $wpdb;
 
 !is_array(get_option('ken_remixcomp_settings')) ? "" : extract(get_option('ken_remixcomp_settings'));
 
+//Set star
 if($_GET['set_star'] && preg_match('/^\d\d*$/', $_GET['set_star']) ){
     //Update star
     $wpdb->update( 
@@ -51,6 +52,7 @@ if($_GET['set_star'] && preg_match('/^\d\d*$/', $_GET['set_star']) ){
     );
 }
 
+//Unset star
 if($_GET['remove_star'] && preg_match('/^\d\d*$/', $_GET['remove_star']) ){
     //Remove star
     $wpdb->update( 
@@ -61,6 +63,19 @@ if($_GET['remove_star'] && preg_match('/^\d\d*$/', $_GET['remove_star']) ){
             array (
                 'rce_id' => $_GET['remove_star']
             )
+    );
+}
+
+//Delete
+if($_GET['delete'] && preg_match('/^\d\d*$/', $_GET['delete']) ){
+    //Remove star
+    $wpdb->query( 
+	$wpdb->prepare( 
+		"DELETE FROM ".$wpdb->prefix."ken_remixcomp_entrees
+		 WHERE rce_id = %d
+		",
+	        $_GET['delete']
+        )
     );
 }
 
@@ -129,6 +144,7 @@ if($_GET['remove_star'] && preg_match('/^\d\d*$/', $_GET['remove_star']) ){
 				<th class="manage-column" width="100" scope="col">Email</th>
 				<th class="manage-column" width="10" scope="col">Votes</th>
 				<th class="manage-column" width="50" scope="col">SC Date</th>
+                                <th class="manage-column" width="20" scope="col"></th>
 			</tr>
 		</thead>
 		<tbody>	
@@ -146,6 +162,9 @@ if($_GET['remove_star'] && preg_match('/^\d\d*$/', $_GET['remove_star']) ){
 					<th scope="row" style="font-weight:normal"><?php echo esc_attr($star_result->rcu_email); ?></th>
 					<th scope="row" style="font-weight:normal"><?php echo esc_attr($star_result->rce_vote_count); ?></th>
 					<th scope="row" style="font-weight:normal"><?php echo esc_attr($star_result->rce_created_date ); ?></th>
+                                        <th scope="row" style="font-weight:normal">
+						<a href="?page=<?php echo $_GET['page']; ?>&rmx_slug=<?php _e(urlencode($remix_db_slug)); ?>&delete=<?php echo $result->rce_id; ?>" title="Delete" onclick="if(confirm('Are you sure you want to delete this entry?')){return true;}else{return false;};"><img src="<?php _e( plugins_url('soundcloud-sound-competition/images/cross.png') ); ?>" border=0></a>
+					</th>
 				</tr>
 	<?php
 			} //Close loop
@@ -166,6 +185,9 @@ if($_GET['remove_star'] && preg_match('/^\d\d*$/', $_GET['remove_star']) ){
 					<th scope="row" style="font-weight:normal"><?php echo esc_attr($result->rcu_email); ?></th>
 					<th scope="row" style="font-weight:normal"><?php echo esc_attr($result->rce_vote_count); ?></th>
 					<th scope="row" style="font-weight:normal"><?php echo esc_attr($result->rce_created_date ); ?></th>
+                                        <th scope="row" style="font-weight:normal">
+						<a href="?page=<?php echo $_GET['page']; ?>&rmx_slug=<?php _e(urlencode($remix_db_slug)); ?>&delete=<?php echo $result->rce_id; ?>" title="Delete" onclick="if(confirm('Are you sure you want to delete this entry?')){return true;}else{return false;};"><img src="<?php _e( plugins_url('soundcloud-sound-competition/images/cross.png') ); ?>" border=0></a>
+					</th>
 				</tr>
 	<?php
 			} //Close loop
