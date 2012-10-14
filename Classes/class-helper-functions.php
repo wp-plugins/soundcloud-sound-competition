@@ -1,10 +1,10 @@
 <?php
 /*
 Plugin Name: SoundCloud Sound Competition
-Plugin URI: http://webhjelpen.no/wordpress-plugin/soundcloud-sound-contest/
+Plugin URI: http://webhjelpen.no/wordpress-plugins/host-soundcloud-sound-contest-in-wordpress/
 Description: Host your own Sound Contest integrated with SoundCloud, users connect easy with SoundCloud to choose track to add to your competition. Everything within your WordPress web site.
 Author: Kenneth Berentzen
-Author URI: http://webhjelpen.no/wordpress-plugin/
+Author URI: http://webhjelpen.no/wordpress-plugins/
 License: Copyright 2012  Kenneth Berentzen  (email : berentzen@gmail.com)
 
 		This program is free software; you can redistribute it and/or modify
@@ -22,7 +22,7 @@ License: Copyright 2012  Kenneth Berentzen  (email : berentzen@gmail.com)
 */
 
 function get_remixcomp_admin_header() {
-     $return_string =   '<h1 style="margin-bottom:5px;">SoundCloud Sound Contest</h1>'.
+     $return_string =   '<h1 style="margin-bottom:5px;">Sound Contest</h1>'.
                         '<div style="padding: 10px; background: #EFEFEF; border: 1px solid #ccc; width: 500px">'.
                         '<p class="description" style="margin-bottom:0px;">Hosted within WordPress, SoundCloud integrated - Version 0.9</p>'.
                         '<p class="description" style="margin-top:0px;">Made by Kenneth Berentzen, more info about this plugin -> <a href="http://webhjelpen.no/wordpress-plugin/" target="new">Webhjelpen.no</a></p>'.
@@ -45,7 +45,7 @@ function remixcomp_admin_actions() {
 }
 
 function get_remixcomp_stamper() {
-     $return_string =   '<br><div style="font-size:10px;margin:0px;padding:0px;">Powered by <a href="http://kenrecords.com" target="new">Ken Records</a> &mdash; <a href="http://webhjelpen.no/wordpress-plugins/host-soundcloud-sound-contest-in-wordpress/" target="new">SoundCloud Sound Contest Plugin</a> </div><br><br>';       
+     $return_string =   '<br><div style="font-size:10px;margin:0px;padding:0px;">Powered by <a href="http://kenrecords.com" target="new">Ken Records</a> &#8594; <a href="http://webhjelpen.no/wordpress-plugin/soundcloud-sound-contest/" target="new">SoundCloud Sound Contest Plugin for WordPress</a> </div><br><br>';       
      return "{$return_string}";
 } 
 
