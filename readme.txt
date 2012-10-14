@@ -25,11 +25,17 @@ Checkout the website - http://webhjelpen.no/wordpress-plugin/soundcloud-sound-co
 = Setup =
 
 Once installed, the authorization process is easy:
+
 1. When you first access the plugin’s options page, you will have to fill in setting of you app.
+
 2. To create an app in Soundcloud go here: http://soundcloud.com/you/apps, after logging in you should get the putton "Create new application"
+
 3. After making a name for your app you will get all the information to fill in there. Copy and past all the information into your plugin settings in wordpress in the appropriate fields matching names.
+
 4. In Wordpress create a page for your Remix SoundCloud registration and put in the wordpress code there.
+
 5. The URL of the page you created in 4. type this in your app http://soundcloud.com/you/apps where it says: Redirect URI, this is where SoundCloud redirects after connecting.
+
 6. Test your app to see everything working.
 
 
