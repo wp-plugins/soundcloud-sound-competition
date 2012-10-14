@@ -8,7 +8,7 @@ Stable tag: 0.9.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Host multiple sound or remix competition all within your wordpress site all integrated with SoundCloud! Get massive social media attention with your competition!
+Host multiple sound or remix competition all within your wordpress site, integrated with SoundCloud! Get massive social media attention!
 
 
 == Description ==
