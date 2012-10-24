@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: SoundCloud Sound Competition
-Plugin URI: http://webhjelpen.no/wordpress-plugins/host-soundcloud-sound-contest-in-wordpress/
+Plugin URI: http://webhjelpen.no/wordpress-plugin/soundcloud-sound-competition/
 Description: Host your own Sound Contest integrated with SoundCloud, users connect easy with SoundCloud to choose track to add to your competition. Everything within your WordPress web site.
-Version: 0.9
+Version: 0.9.1
 Author: Kenneth Berentzen
-Author URI: http://webhjelpen.no/wordpress-plugins/
+Author URI: http://webhjelpen.no/wordpress-plugin
 License: Copyright 2012  Kenneth Berentzen  (email : berentzen@gmail.com)
 
 		This program is free software; you can redistribute it and/or modify
@@ -21,6 +21,8 @@ License: Copyright 2012  Kenneth Berentzen  (email : berentzen@gmail.com)
 		along with this program; if not, write to the Free Software
 		Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
+
+
 
 global $wpdb;
 
