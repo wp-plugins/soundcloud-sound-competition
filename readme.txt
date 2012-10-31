@@ -56,7 +56,7 @@ None at the moment.
 
 = More Information =
 
-For news and updates please visit my blog - http://webhjelpen.no/
+For news and updates please visit - http://webhjelpen.no/
 
 
 
@@ -79,7 +79,8 @@ Just replace the new plugin files.
 
 == Frequently Asked Questions ==
 
-Comming.
+1.  Question: What does the star in the admin panel do?
+    Answer: The stars has no specific function other than for the admin to mark the potential winners for a competition. 
 
 
 

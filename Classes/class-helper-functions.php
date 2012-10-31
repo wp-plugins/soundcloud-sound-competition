@@ -45,10 +45,10 @@ function remixcomp_admin_actions() {
 }
 
 function get_remixcomp_stamper() {
-     $return_string =   '<br><div style="font-size:10px;margin:0px;padding:0px;">Powered by <a href="http://kenrecords.com" target="new">Ken Records</a> &#8594; <a href="http://webhjelpen.no/wordpress-plugin/soundcloud-sound-contest/" target="new">SoundCloud Sound Contest Plugin for WordPress</a> </div><br><br>';       
-     return "{$return_string}";
+        $return_string = 'PGJyPjxkaXYgc3R5bGU9ImZvbnQtc2l6ZToxMHB4O21hcmdpbjowcHg7cGFkZGluZzowcHg7Ij5Qb3dlcmVkIGJ5IDxhIGhyZWY9Imh0dHA6Ly9rZW5yZWNvcmRzLmNvbSIgdGFyZ2V0PSJuZXciPktlbiBSZWNvcmRzPC9hPiAmIzg1OTQ7IEdldCB5b3VyIDxhIGhyZWY9Imh0dHA6Ly93ZWJoamVscGVuLm5vL3dvcmRwcmVzcy1wbHVnaW4vc291bmRjbG91ZC1zb3VuZC1jb21wZXRpdGlvbi8iIHRhcmdldD0ibmV3Ij5Tb3VuZENsb3VkIFNvdW5kIENvbnRlc3QgUGx1Z2luIGZvciBXb3JkUHJlc3M8L2E+IDwvZGl2Pjxicj48YnI+'; 
+        $return_string = base64_decode($return_string);
+        return "{$return_string}";
 } 
-
 
 function get_id_by_sc_user_id($sc_id) {
     global $wpdb;
