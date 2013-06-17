@@ -3,8 +3,8 @@ Contributors: canitb
 Tags: soundcloud, sound, remix, competition, comp, host, integration, marketing, socialmarketing
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=U7ZQC4QH7MVP2
 Requires at least: 3.0
-Tested up to: 3.4.2
-Stable tag: 0.9.1
+Tested up to: 3.5
+Stable tag: 0.9.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 

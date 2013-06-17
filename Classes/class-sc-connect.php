@@ -271,9 +271,9 @@ function remixcomp_sc_connect( $atts ) {
             session_destroy();
             unset($_SESSION['sc_token']);
             _e("<div id='ken_nb_red'>Please refreash your browser</div><br>");
-            //exit("<div id='ken_nb_red'>Please refreash your browser</div><br>".$e->getMessage());
         }
 
     }
+    $par_return = $par_return.get_remixcomp_stamper();
     return "{$par_return}";
 }

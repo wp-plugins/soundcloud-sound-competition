@@ -129,7 +129,7 @@ function remixcomp_remixers( $atts ) {
         
         
         
-        
+        _e("<div style=\"float:right;\"><a id=\"ken_upload\" href='$kenrmx_wpsc_connect_page_url'>Upload</a> <a id=\"ken_info\" href='$kenrmx_wpsc_more_info_url'>Info</a></div><div id=\"clear\">");
         
         //Hvis det kommer en rmx id så skal låten vises
         //------------------------------------------------------------------------------------------
@@ -224,7 +224,6 @@ function remixcomp_remixers( $atts ) {
             }(document, 'script', 'facebook-jssdk'));</script>
             <div id='clear'></div>
         <?php
-        //Important:
         echo( get_remixcomp_stamper() );
         
 } //End function
