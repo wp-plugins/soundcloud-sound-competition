@@ -1,10 +1,10 @@
 <?php
 /*
 Plugin Name: SoundCloud Sound Competition
-Plugin URI: http://webhjelpen.no/wordpress-plugin/soundcloud-sound-competition/
+Plugin URI: http://webhjelpen.no/wordpress-plugins/host-soundcloud-sound-contest-in-wordpress/
 Description: Host your own Sound Contest integrated with SoundCloud, users connect easy with SoundCloud to choose track to add to your competition. Everything within your WordPress web site.
 Author: Kenneth Berentzen
-Author URI: http://webhjelpen.no/wordpress-plugin
+Author URI: http://webhjelpen.no/wordpress-plugins/
 License: Copyright 2012  Kenneth Berentzen  (email : berentzen@gmail.com)
 
 		This program is free software; you can redistribute it and/or modify
@@ -40,6 +40,7 @@ function remixcomp_settings() {
                                             'kenrmx_sc_remix_type' => $_POST['kenrmx_sc_remix_type'], 
                                             'kenrmx_wpsc_connect_page_url' => $_POST['kenrmx_wpsc_connect_page_url'], 
                                             'kenrmx_wpsc_entrees_page_url' => $_POST['kenrmx_wpsc_entrees_page_url'], 
+                                            'kenrmx_wpsc_more_info_url' => $_POST['kenrmx_wpsc_more_info_url'], 
                                             'kenrmx_facebook_width' => $_POST['kenrmx_facebook_width'], 
                                             'kenrmx_facebook_comments' => $_POST['kenrmx_facebook_comments']
                                             );
@@ -66,6 +67,8 @@ function remixcomp_settings() {
     <input type="text" size="80" name="kenrmx_wpsc_connect_page_url" value="<?php echo $kenrmx_wpsc_connect_page_url; ?>"/><br><br>
     <strong style="color:#999;">WordPress List Entrees Page URL:</strong> <font color="green">Shortcode -> [soundcomp-entrees type='mycomp1']</font> <br>
     <input type="text" size="80" name="kenrmx_wpsc_entrees_page_url" value="<?php echo $kenrmx_wpsc_entrees_page_url; ?>"/><br><br>
+    <strong style="color:#999;">More information Page/Post URL:</strong> <br>
+    <input type="text" size="80" name="kenrmx_wpsc_more_info_url" value="<?php echo $kenrmx_wpsc_more_info_url; ?>"/><br><br>
     
     <h3>Contest List Entrees</h3>
     <strong style="color:#999;">Facebook comments box width:</strong><br>

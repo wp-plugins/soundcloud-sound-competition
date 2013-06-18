@@ -21,7 +21,7 @@
     </div>
     <div id="clear"></div>
             <div id="facebook_p">
-                    <iframe src="//www.facebook.com/plugins/like.php?href=<?php echo($current_rmx_url); ?>&amp;send=false&amp;layout=button_count&amp;width=200&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:200px; height:21px;" allowTransparency="true"></iframe>
+                    <div class="fb-like" data-href="<?php echo($current_rmx_url); ?>" data-send="false" data-layout="button_count" data-width="200" data-show-faces="false"></div>
             </div>
             <div id="twitter_p">
                     <a href="https://twitter.com/share" class="twitter-share-button" data-url="<?php echo($current_rmx_url); ?>" data-text="Sound contest, listen to <?php echo $record['rce_sct_title']; ?>" data-via="kenrecords" data-related="djkentwist">Tweet</a>

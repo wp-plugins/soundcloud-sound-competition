@@ -26,6 +26,31 @@ border: 1px solid #ccc;
 background: #eee;
 }
 
+#ken_upload {
+margin-bottom: 5px;
+background: url(../images/upload.png) no-repeat 0 0;
+height: 29px;
+width: 101px;
+display: inline-block;
+text-indent: -9999px;
+opacity: 0.6;
+}
+#ken_upload:hover {
+opacity: 1;
+}
+#ken_info {
+margin-bottom: 5px;
+margin-right: 5px;
+background: url(../images/info.png) no-repeat 0 0;
+height: 29px;
+width: 73px;
+display: inline-block;
+text-indent: -9999px;
+opacity: 0.6;
+}
+#ken_info:hover {
+opacity: 1;
+}
 #ken_connect {
 background: url(../images/connect.png) no-repeat 0 0;
 height: 29px;
