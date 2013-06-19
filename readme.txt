@@ -24,7 +24,7 @@ Checkout the website - http://webhjelpen.no/wordpress-plugin/soundcloud-sound-co
 
 = Setup =
 
-Once installed, the authorization process is easy:
+Once installed, the authorization process is easy: 
 
 1. When you first access the plugin’s options page, you will have to fill in setting of you app.
 
