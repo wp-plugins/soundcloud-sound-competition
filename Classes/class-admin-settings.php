@@ -58,15 +58,21 @@ function remixcomp_settings() {
     <input type="text" size="80" name="kenrmx_sc_client_id" value="<?php echo $kenrmx_sc_client_id; ?>"/><br><br>
     <strong style="color:#999;">Soundcloud Client Secret:</strong><br>
     <input type="text" size="80" name="kenrmx_sc_client_secret" value="<?php echo $kenrmx_sc_client_secret; ?>"/><br><br>
-    <strong style="color:#999;">Comp db name:</strong> <font color="green">Example -> mycomp1</font> <div style="color:#999;">(If you wanto make a new remix competition this is the new slug for registration in the database)</div>
+    <strong style="color:#999;">Comp db name:</strong> <font color="green">Example -> mycomp1</font> <div style="color:#ccc;">(If you wanto make a new remix competition this is the new slug for registration in the database)</div>
     <input type="text" size="80" name="kenrmx_sc_remix_type" value="<?php echo $kenrmx_sc_remix_type; ?>"/><br><br>
     <input type='submit' value='Save settings'/><br><br>
     
     <h3>Current Contest Page</h3>
-    <strong style="color:#999;">WordPress SoundCloud Connect Page URL:</strong> <font color="green">Shortcode -> [soundcomp-add]</font> <br>
-    <input type="text" size="80" name="kenrmx_wpsc_connect_page_url" value="<?php echo $kenrmx_wpsc_connect_page_url; ?>"/><br><br>
-    <strong style="color:#999;">WordPress List Entrees Page URL:</strong> <font color="green">Shortcode -> [soundcomp-entrees type='mycomp1']</font> <br>
-    <input type="text" size="80" name="kenrmx_wpsc_entrees_page_url" value="<?php echo $kenrmx_wpsc_entrees_page_url; ?>"/><br><br>
+    <strong style="color:#999;">WordPress SoundCloud Connect Page URL:</strong><br>       
+    <input type="text" size="80" name="kenrmx_wpsc_connect_page_url" value="<?php echo $kenrmx_wpsc_connect_page_url; ?>"/><br>
+    <font color="#ccc">Place the shortcode below on this page (the page/url just above this text)</font><br>
+    <input type="text" size="80" onclick="this.focus();this.select()" readonly="readonly" value="[soundcomp-add]"/><br><br>
+    
+    <strong style="color:#999;">WordPress List Entrees Page URL:</strong><br>
+    <input type="text" size="80" name="kenrmx_wpsc_entrees_page_url" value="<?php echo $kenrmx_wpsc_entrees_page_url; ?>"/><br>
+    <font color="#ccc">Place the shortcode below on this page (the page/url just above this text) Edit mycomp1 to "comp db name".</font><br>
+    <input type="text" size="80" onclick="this.focus();this.select()" readonly="readonly" value="[soundcomp-entrees type='mycomp1']"/><br><br>
+    
     <strong style="color:#999;">More information Page/Post URL:</strong> <br>
     <input type="text" size="80" name="kenrmx_wpsc_more_info_url" value="<?php echo $kenrmx_wpsc_more_info_url; ?>"/><br><br>
     

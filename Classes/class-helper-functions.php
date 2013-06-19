@@ -24,7 +24,7 @@ License: Copyright 2012  Kenneth Berentzen  (email : berentzen@gmail.com)
 function get_remixcomp_admin_header() {
      $return_string =   '<h1 style="margin-bottom:5px;">Sound Contest</h1>'.
                         '<div style="padding: 10px; background: #EFEFEF; border: 1px solid #ccc; width: 500px">'.
-                        '<p class="description" style="margin-bottom:0px;">Hosted within WordPress, SoundCloud integrated - Version 0.9.2</p>'.
+                        '<p class="description" style="margin-bottom:0px;">Hosted within WordPress, SoundCloud integrated</p>'.
                         '<p class="description" style="margin-top:0px;">Made by Kenneth Berentzen, more info about this plugin -> <a href="http://webhjelpen.no/wordpress-plugin/" target="new">Webhjelpen.no</a></p>'.
                         '<iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.facebook.com%2FWebHjelpen&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:21px;" allowTransparency="true"></iframe>'.
                         '</div>';       

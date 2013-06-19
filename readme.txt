@@ -4,7 +4,7 @@ Tags: soundcloud, sound, remix, competition, comp, host, integration, marketing,
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=U7ZQC4QH7MVP2
 Requires at least: 3.0
 Tested up to: 3.5
-Stable tag: 0.9.2.0
+Stable tag: 0.9.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -95,6 +95,9 @@ Just replace the new plugin files.
 
 
 == Changelog ==
+
+= 0.9.2.1 =
+* Usabillity: Better shortcode copyer.
 
 = 0.9.2.0 =
 * Added info and upload button
