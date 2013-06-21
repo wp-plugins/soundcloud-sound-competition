@@ -66,12 +66,12 @@ function remixcomp_settings() {
     <strong style="color:#999;">WordPress SoundCloud Connect Page URL:</strong><br>       
     <input type="text" size="80" name="kenrmx_wpsc_connect_page_url" value="<?php echo $kenrmx_wpsc_connect_page_url; ?>"/><br>
     <font color="#ccc">Place the shortcode below on this page (the page/url just above this text)</font><br>
-    <input type="text" size="80" onclick="this.focus();this.select()" readonly="readonly" value="[soundcomp-add]"/><br><br>
+    <input type="text" size="40" onclick="this.focus();this.select()" readonly="readonly" value="[soundcomp-add]"/><br><br>
     
     <strong style="color:#999;">WordPress List Entrees Page URL:</strong><br>
     <input type="text" size="80" name="kenrmx_wpsc_entrees_page_url" value="<?php echo $kenrmx_wpsc_entrees_page_url; ?>"/><br>
-    <font color="#ccc">Place the shortcode below on this page (the page/url just above this text) Edit mycomp1 to "comp db name".</font><br>
-    <input type="text" size="80" onclick="this.focus();this.select()" readonly="readonly" value="[soundcomp-entrees type='mycomp1']"/><br><br>
+    <font color="#ccc">Place the shortcode below on this page (the page/url just above this text).</font><br>
+    <input type="text" size="40" onclick="this.focus();this.select()" readonly="readonly" value="[soundcomp-entrees type='<?php echo $kenrmx_sc_remix_type; ?>']"/><br><br>
     
     <strong style="color:#999;">More information Page/Post URL:</strong> <br>
     <input type="text" size="80" name="kenrmx_wpsc_more_info_url" value="<?php echo $kenrmx_wpsc_more_info_url; ?>"/><br><br>
