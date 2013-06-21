@@ -717,9 +717,11 @@ class Services_Soundcloud
     public function updatePlaylist($playlistId, $trackIds, $optionalPostData = null)
     {
         $url = $this->_buildUrl('playlists/' . $playlistId);
-        $postData = array_map(function ($track) {
-            return 'playlist[tracks][][id]=' . $track;
-        }, $trackIds);
+        $postData = array();
+
+        foreach ($trackIds as $trackId) {
+            array_push($postData, 'playlist[tracks][][id]=' . $trackId);
+        }
 
         if (is_array($optionalPostData)) {
             foreach ($optionalPostData as $key => $val) {
@@ -921,10 +923,16 @@ class Services_Soundcloud
 
         curl_close($ch);
 
-        $this->_lastHttpResponseHeaders = $this->_parseHttpHeaders(
-            substr($data, 0, $info['header_size'])
-        );
-        $this->_lastHttpResponseBody = substr($data, $info['header_size']);
+        if (array_key_exists(CURLOPT_HEADER, $options) && $options[CURLOPT_HEADER]) {
+            $this->_lastHttpResponseHeaders = $this->_parseHttpHeaders(
+                substr($data, 0, $info['header_size'])
+            );
+            $this->_lastHttpResponseBody = substr($data, $info['header_size']);
+        } else {
+            $this->_lastHttpResponseHeaders = array();
+            $this->_lastHttpResponseBody = $data;
+        }
+
         $this->_lastHttpResponseCode = $info['http_code'];
 
         if ($this->_validResponseCode($this->_lastHttpResponseCode)) {

@@ -4,7 +4,7 @@ Tags: soundcloud, sound, remix, competition, comp, host, integration, marketing,
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=U7ZQC4QH7MVP2
 Requires at least: 3.0
 Tested up to: 3.5
-Stable tag: 0.9.2.2
+Stable tag: 0.9.2.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -43,7 +43,7 @@ Once installed, the authorization process is easy:
 
 = Minimum Requirements =
 
-1. PHP 5.2 or higher
+1. PHP 5.2 or higher (with [cURL](http://se2.php.net/curl) support)
 2. [A Soundcloud account](https://www.soundcloud.com/)
 
 
@@ -95,6 +95,10 @@ Just replace the new plugin files.
 
 
 == Changelog ==
+
+= 0.9.2.3 =
+* Updated to new Soundcloud API.
+
 
 = 0.9.2.1 =
 * Usabillity: Better shortcode copyer.
