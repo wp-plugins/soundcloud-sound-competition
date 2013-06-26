@@ -50,7 +50,7 @@ Once installed, the authorization process is easy:
 
 = Errors and Warnings =
 
-None at the moment.
+Non at the moment, some known configuration setup issues with windows server, see Issues for more information.
 
 
 
@@ -61,6 +61,8 @@ For news and updates please visit - http://webhjelpen.no/
 
 
 = Issues =
+* If your website is on a windows server and you get the following error: "The requested URL responded with HTTP code 0" you might have a problem with cURL with your setup, please see the following link to resolve:
+http://richardwarrender.com/2007/05/the-secret-to-curl-in-php-on-windows/
 
 If you notice any bugs or want to request a feature please do so on http://webhjelpen.no/kontakt/
 
