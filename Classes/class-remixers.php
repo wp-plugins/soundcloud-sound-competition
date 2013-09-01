@@ -40,6 +40,7 @@ function rmxid_queryvars($public_query_vars) {
     global $wpdb;
     $public_query_vars[] = 'rmxid';
     $public_query_vars[] = 'voting_rmx';
+    $public_query_vars[] = 'sortid';
     return $public_query_vars;
 }
 add_filter('query_vars', 'rmxid_queryvars');
@@ -75,10 +76,23 @@ function remixcomp_remixers( $atts ) {
         echo("<br><link rel='stylesheet' href='".plugins_url('soundcloud-sound-competition/css/style.css')."' />");
         //echo($session_ip."-".$session."<br>");
         
-        //Get rmx
+        //Variables
         $remix_id = urldecode(get_query_var('rmxid'));
         $voting_rmx = urldecode(get_query_var('voting_rmx'));
+        $sort_id = urldecode(get_query_var('sortid'));
         $remix_db_slug = $atts['type'];
+        
+        
+        if ($sort_id != null) {
+
+            if ($sort_id != null && $sort_id == 1) {
+                $_SESSION['sort'] = "1";
+            }
+            else {
+                $_SESSION['sort'] = "2";
+            }
+        }    
+        
         
         //Hvis voting_rmx så skal låten registreres hvis den ikke har blitt votet før på den brukeren.
         //------------------------------------------------------------------------------------------
@@ -134,15 +148,21 @@ function remixcomp_remixers( $atts ) {
         //Hvis det kommer en rmx id så skal låten vises
         //------------------------------------------------------------------------------------------
         if ($remix_id ) {
+            //Dokumentasjon http://codex.wordpress.org/Function_Reference/add_query_arg
+            //http://codex.wordpress.org/Function_Reference/get_query_var
+            //http://wordpress.stackexchange.com/questions/31821/pretty-url-with-add-query-var
             $base_url = $the_url;
             $base_url_voting = $the_url;  
             $base_url_remixers = $the_url;    //Getting current url
             $params3 = array( 'rmxid' ); 
-            $params4 = array( 'voting_rmx' ); 
+            $params4 = array( 'voting_rmx' );
+            //$params5 = array( 'sortid' ); 
             $base_url_voting = remove_query_arg( $params3, $base_url_voting ); 
-            $base_url_remixers = remove_query_arg( $params4, $base_url_remixers );  
+            $base_url_remixers = remove_query_arg( $params4, $base_url_remixers ); 
+            //$base_url_sortid = remove_query_arg( $params5, $base_url_sortid );  
             $base_url = remove_query_arg( $params3, $base_url ); 
-            $base_url = remove_query_arg( $params4, $base_url );  
+            $base_url = remove_query_arg( $params4, $base_url ); 
+            //$base_url = remove_query_arg( $params5, $base_url );  
             /***************************************************************************************
                                             LIST ONE
             ****************************************************************************************/
@@ -175,21 +195,30 @@ function remixcomp_remixers( $atts ) {
                 }//end foreach
             }//end if sql res
                 
-        echo("<a href='".$base_url."'><h2>All entrees</h2></a><br>");
+        echo("<a href='".$base_url."'><h2>All entrees</h2></a>");      
         
         }//End if remix_id
         
+        //echo("<a href='".add_query_arg( array( 'sortid' => 1 ), $base_url )."'>Latest uploads</a> "."<a href='".add_query_arg( array( 'sortid' => 2 ), $base_url )."'>Highest rated</a><br>");
+        _e("<div style=\"float:right;\"><a id=\"ken_latest\" href='".add_query_arg( array( 'sortid' => 1 ), $base_url )."'>Latest uploads</a> <a id=\"ken_rated\" href='".add_query_arg( array( 'sortid' => 2 ), $base_url )."'>Highest rated</a></div><div id=\"clear\">");
         
         /***************************************************************************************
                                         LIST ALL
         ****************************************************************************************/
-        
+        //Sort
+        if ($_SESSION['sort'] == 1) {
+            $sort_query = "ORDER BY rce_id DESC";
+        }
+        else {
+            $sort_query = "ORDER BY rce_vote_count DESC";
+        }
+            
 	// This query selects all contracts that are published
-	$sql = "
-            SELECT * FROM ".$wpdb->prefix."ken_remixcomp_entrees
+	$sql = "SELECT * FROM ".$wpdb->prefix."ken_remixcomp_entrees
             JOIN ".$wpdb->prefix."ken_remixcomp_users ON rcu_id = rce_rcu_id
-            WHERE rce_remix='".$remix_db_slug."';";
-	$results = $wpdb->get_results($sql);  // Run our query, getting results as an object
+            WHERE rce_remix='".$remix_db_slug."' ".$sort_query.";";
+        
+        $results = $wpdb->get_results($sql);  // Run our query, getting results as an object
 
         if (!empty($results)) {                 // If the query returned something
             foreach ($results as $result) {     // Loop though our results!	

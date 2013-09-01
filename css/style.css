@@ -26,6 +26,31 @@ border: 1px solid #ccc;
 background: #eee;
 }
 
+#ken_latest {
+margin-bottom: 5px;
+background: url(../images/button-latest.png) no-repeat 0 0;
+height: 21px;
+width: 89px;
+display: inline-block;
+text-indent: -9999px;
+opacity: 0.6;
+}
+#ken_latest:hover {
+opacity: 1;
+}
+#ken_rated {
+margin-bottom: 5px;
+background: url(../images/button-rating.png) no-repeat 0 0;
+height: 21px;
+width: 90px;
+display: inline-block;
+text-indent: -9999px;
+opacity: 0.6;
+}
+#ken_rated:hover {
+opacity: 1;
+}
+
 #ken_upload {
 margin-bottom: 5px;
 background: url(../images/upload.png) no-repeat 0 0;
@@ -138,7 +163,7 @@ position:absolute;
 padding: 4px 7px;
 top:0;
 right:0;
-width: 50px;
+width: 55px;
 text-align: right;
 border: 0px solid #000;
 }
