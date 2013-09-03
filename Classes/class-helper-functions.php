@@ -1,10 +1,10 @@
 <?php
 /*
 Plugin Name: SoundCloud Sound Competition
-Plugin URI: http://webhjelpen.no/wordpress-plugins/host-soundcloud-sound-contest-in-wordpress/
+Plugin URI: http://lightdigitalmedia.com/wordpress-plugins/soundcloud-sound-competition/
 Description: Host your own Sound Contest integrated with SoundCloud, users connect easy with SoundCloud to choose track to add to your competition. Everything within your WordPress web site.
 Author: Kenneth Berentzen
-Author URI: http://webhjelpen.no/wordpress-plugins/
+Author URI: http://lightdigitalmedia.com/
 License: Copyright 2012  Kenneth Berentzen  (email : berentzen@gmail.com)
 
 		This program is free software; you can redistribute it and/or modify
@@ -25,8 +25,8 @@ function get_remixcomp_admin_header() {
      $return_string =   '<h1 style="margin-bottom:5px;">Sound Contest</h1>'.
                         '<div style="padding: 10px; background: #EFEFEF; border: 1px solid #ccc; width: 500px">'.
                         '<p class="description" style="margin-bottom:0px;">Hosted within WordPress, SoundCloud integrated</p>'.
-                        '<p class="description" style="margin-top:0px;">Made by Kenneth Berentzen, more info about this plugin -> <a href="http://webhjelpen.no/wordpress-plugin/" target="new">Webhjelpen.no</a></p>'.
-                        '<iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.facebook.com%2FWebHjelpen&amp;send=false&amp;layout=button_count&amp;width=450&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:450px; height:21px;" allowTransparency="true"></iframe>'.
+                        '<p class="description" style="margin-top:0px;">Made by Kenneth Berentzen, more info about this plugin -> <a href="http://lightdigitalmedia.com/wordpress-plugins/soundcloud-sound-competition/" target="new">LightDigitalMedia.com</a></p>'.
+                        '<br>If you like and use this plugin, please support it by rating it on <a href="http://wordpress.org/plugins/soundcloud-sound-competition/" target="new">Wordpress</a><br>or by <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=U7ZQC4QH7MVP2" target="new">donating a few cappuchinos</a> so i will keep going :) - Or both! '.
                         '</div>';       
      return "{$return_string}";
 } 
@@ -45,7 +45,8 @@ function remixcomp_admin_actions() {
 }
 
 function get_remixcomp_stamper() {
-        $return_string = 'PGJyPjxkaXYgc3R5bGU9ImZvbnQtc2l6ZToxMHB4O21hcmdpbjowcHg7cGFkZGluZzowcHg7Ij5Qb3dlcmVkIGJ5IDxhIGhyZWY9Imh0dHA6Ly9rZW5yZWNvcmRzLmNvbSIgdGFyZ2V0PSJuZXciPktlbiBSZWNvcmRzPC9hPiAmIzg1OTQ7IEdldCB5b3VyIDxhIGhyZWY9Imh0dHA6Ly93ZWJoamVscGVuLm5vL3dvcmRwcmVzcy1wbHVnaW4vc291bmRjbG91ZC1zb3VuZC1jb21wZXRpdGlvbi8iIHRhcmdldD0ibmV3Ij5Tb3VuZENsb3VkIFNvdW5kIENvbnRlc3QgUGx1Z2luIGZvciBXb3JkUHJlc3M8L2E+IDwvZGl2Pjxicj48YnI+'; 
+        //base64_encode base64_decode
+        $return_string = 'PGRpdiBzdHlsZT0iZm9udC1zaXplOjEwcHg7bWFyZ2luOjBweDtwYWRkaW5nOjBweDsiPlBvd2VyZWQgYnkgPGEgaHJlZj0iaHR0cDovL2tlbnJlY29yZHMuY29tIiB0YXJnZXQ9Im5ldyI+S2VuIFJlY29yZHM8L2E+IOKGkiBHZXQgeW91ciA8YSBocmVmPSJodHRwOi8vbGlnaHRkaWdpdGFsbWVkaWEuY29tL3dvcmRwcmVzcy1wbHVnaW5zL3NvdW5kY2xvdWQtc291bmQtY29tcGV0aXRpb24vIiB0YXJnZXQ9Im5ldyI+U291bmRDbG91ZCBTb3VuZCBDb250ZXN0IFBsdWdpbiBmb3IgV29yZFByZXNzPC9hPiA8L2Rpdj4='; 
         $return_string = base64_decode($return_string);
         return "{$return_string}";
 } 

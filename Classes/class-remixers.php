@@ -1,10 +1,10 @@
 <?php
 /*
 Plugin Name: SoundCloud Sound Competition
-Plugin URI: http://webhjelpen.no/wordpress-plugin/soundcloud-sound-competition/
+Plugin URI: http://lightdigitalmedia.com/wordpress-plugins/soundcloud-sound-competition/
 Description: Host your own Sound Contest integrated with SoundCloud, users connect easy with SoundCloud to choose track to add to your competition. Everything within your WordPress web site.
 Author: Kenneth Berentzen
-Author URI: http://webhjelpen.no/wordpress-plugin
+Author URI: http://lightdigitalmedia.com/
 License: Copyright 2012  Kenneth Berentzen  (email : berentzen@gmail.com)
 
 		This program is free software; you can redistribute it and/or modify
@@ -199,7 +199,6 @@ function remixcomp_remixers( $atts ) {
         
         }//End if remix_id
         
-        //echo("<a href='".add_query_arg( array( 'sortid' => 1 ), $base_url )."'>Latest uploads</a> "."<a href='".add_query_arg( array( 'sortid' => 2 ), $base_url )."'>Highest rated</a><br>");
         _e("<div style=\"float:right;\"><a id=\"ken_latest\" href='".add_query_arg( array( 'sortid' => 1 ), $base_url )."'>Latest uploads</a> <a id=\"ken_rated\" href='".add_query_arg( array( 'sortid' => 2 ), $base_url )."'>Highest rated</a></div><div id=\"clear\">");
         
         /***************************************************************************************
@@ -223,11 +222,23 @@ function remixcomp_remixers( $atts ) {
         if (!empty($results)) {                 // If the query returned something
             foreach ($results as $result) {     // Loop though our results!	
                 
+                $vote_sql_all = "SELECT *                                                       
+                    FROM ".$wpdb->prefix."ken_remixcomp_voting 
+                    WHERE rcv_rce_id='".$result->rce_id."'
+                    AND rcv_session='".$session."'
+                    LIMIT 1
+                ";                                                                 //Check if user voted
+                $vote_results_all = $wpdb->get_results($vote_sql_all);
+                
                 $params = array( 'rmxid' => $result->rce_id );                              //Making parameter
                 $base_url_remixers = add_query_arg( $params, $base_url_remixers );          //Adding url parameter
                 
-                require( MYPLUGINNAME_PATH.'view/print_all.php' );
-
+                if( $kenrmx_wpsc_preview_type == "Sound_list" )  {
+                    require( MYPLUGINNAME_PATH.'view/print_all2.php' );    
+                }
+                else  {
+                    require( MYPLUGINNAME_PATH.'view/print_all.php' );
+                }
                 
             } //Close loop
 	} //Close if return somthing

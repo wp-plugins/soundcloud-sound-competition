@@ -4,7 +4,7 @@ Tags: soundcloud, sound, remix, competition, comp, host, integration, marketing,
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=U7ZQC4QH7MVP2
 Requires at least: 3.0
 Tested up to: 3.6
-Stable tag: 0.9.2.4
+Stable tag: 0.9.2.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,12 +13,12 @@ Host multiple sound or remix competition all within your wordpress site, integra
 
 == Description ==
 
-[SoundCloud Sound Competition ](http://webhjelpen.no/wordpress-plugin/soundcloud-sound-competition/) has been created to let you host your own remix competition without thinking about storage space, it's all integrated with SoundCloud so that all remixes are stored there.
+[SoundCloud Sound Competition ](http://lightdigitalmedia.com/wordpress-plugins/soundcloud-sound-competition/) has been created to let you host your own remix competition without thinking about storage space, it's all integrated with SoundCloud so that all remixes are stored there.
 
 Just make your own app in Soundcloud and add the parameters within your settings and you are good to go. You can chose a database slug when a competition has come to an end and you want to start another one, this creates a new competition. The plugin uses [OAuth2](https://api.soundcloud.com/oauth2/) so your Soundcloud account details are not stored for the
 plugin to gain access.
 
-Checkout the website - http://webhjelpen.no/wordpress-plugin/soundcloud-sound-competition/
+Checkout the website - http://lightdigitalmedia.com/wordpress-plugins/soundcloud-sound-competition/
 
 
 
@@ -56,7 +56,7 @@ Non at the moment, some known configuration setup issues with windows server, se
 
 = More Information =
 
-For news and updates please visit - http://webhjelpen.no/
+For news and updates please visit - http://lightdigitalmedia.com/
 
 
 
@@ -64,7 +64,7 @@ For news and updates please visit - http://webhjelpen.no/
 * If your website is on a windows server and you get the following error: "The requested URL responded with HTTP code 0" you might have a problem with cURL with your setup, please see the following link to resolve:
 http://richardwarrender.com/2007/05/the-secret-to-curl-in-php-on-windows/
 
-If you notice any bugs or want to request a feature please do so on http://webhjelpen.no/kontakt/
+If you notice any bugs or want to request a feature please do so on http://lightdigitalmedia.com/contact/
 
 
 == Installation ==
@@ -98,8 +98,13 @@ Just replace the new plugin files.
 
 == Changelog ==
 
+= 0.9.2.5 =
+* Added additional viewing option with choice in the admin.
+
+
 = 0.9.2.4 =
 * Added sorting on last uploaded and highest rating on the competition page.
+
 
 = 0.9.2.3 =
 * Updated to new Soundcloud API.
