@@ -1,14 +1,14 @@
 === SoundCloud Sound Competition ===
 Contributors: canitb
-Tags: soundcloud, sound, remix, competition, comp, host, integration, marketing, socialmarketing
+Tags: facebook, api, soundcloud, sound, remix, competition, comp, host, integration, marketing, socialmarketing
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=U7ZQC4QH7MVP2
 Requires at least: 3.0
-Tested up to: 3.9
-Stable tag: 0.9.2.5
+Tested up to: 4.0
+Stable tag: 0.9.2.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Host multiple sound or remix competition all within your wordpress site, integrated with SoundCloud! Get massive social media attention!
+Host multiple sound or remix competition all within your wordpress site, integrated with SoundCloud and Facebook! Get massive social media attention!
 
 
 == Description ==
@@ -17,6 +17,8 @@ Host multiple sound or remix competition all within your wordpress site, integra
 
 Just make your own app in Soundcloud and add the parameters within your settings and you are good to go. You can chose a database slug when a competition has come to an end and you want to start another one, this creates a new competition. The plugin uses [OAuth2](https://api.soundcloud.com/oauth2/) so your Soundcloud account details are not stored for the
 plugin to gain access.
+
+Also supporting Facebook secure voting and multi language.
 
 Checkout the website - http://lightdigitalmedia.com/wordpress-plugins/soundcloud-sound-competition/
 
@@ -91,12 +93,22 @@ Just replace the new plugin files.
 1. SoundCloud Sound Contest New remixers backend
 2. SoundCloud Sound Contest Settings backend
 3. SoundCloud Sound Contest SoundCloud Connect button
-4. SoundCloud Sound Contest Choosing the track
-5. SoundCloud Sound Contest Listening and voting
-
+4. SoundCloud Sound Contest List front end
+5. SoundCloud Sound Contest Upload and collect email
+6. SoundCloud Sound Contest Facebook before connection
+7. SoundCloud Sound Contest Facebook after connection voting
 
 
 == Changelog ==
+
+= 1.0.0.0 =
+* Added license function.
+* Added Facebook secure voting.
+* Added choice of facebook, ip or session voting.
+* New graphic.
+* Language support added, with English, Spanish and Russian included.
+* Misc bug fixes.
+
 
 = 0.9.2.5 =
 * Added additional viewing option with choice in the admin.

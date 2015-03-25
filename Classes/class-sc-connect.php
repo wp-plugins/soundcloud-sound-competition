@@ -5,7 +5,7 @@ Plugin URI: http://lightdigitalmedia.com/wordpress-plugins/soundcloud-sound-comp
 Description: Host your own Sound Contest integrated with SoundCloud, users connect easy with SoundCloud to choose track to add to your competition. Everything within your WordPress web site.
 Author: Kenneth Berentzen
 Author URI: http://lightdigitalmedia.com/
-License: Copyright 2012  Kenneth Berentzen  (email : berentzen@gmail.com)
+License: Copyright 2012  Kenneth Berentzen  (email : post@lightdigitalmedia.com)
 
 		This program is free software; you can redistribute it and/or modify
 		it under the terms of the GNU General Public License, version 2, as
@@ -68,16 +68,27 @@ function remixcomp_sc_connect( $atts ) {
                 $soundcloud->setAccessToken($_SESSION['sc_token']);
             }
         } catch (Services_Soundcloud_Invalid_Http_Response_Code_Exception $e) {
-            exit("Err: ".$e->getMessage());
+            echo("<div id='ken-remix-comp-nb-red'>");
+            _e("Error","soundcloud-sound-competition");
+            echo(": ".$e->getMessage()."</div>");
         }
     }
 
 
     $par_return = "<link rel='stylesheet' href='".plugins_url('soundcloud-sound-competition/css/style.css')."' />";
 
+    $par_return = $par_return."<div id=\"fb-root\"></div>";
+    $par_return = $par_return."<script>(function(d, s, id) {";
+    $par_return = $par_return."    var js, fjs = d.getElementsByTagName(s)[0];";
+    $par_return = $par_return."    if (d.getElementById(id)) return;";
+    $par_return = $par_return."    js = d.createElement(s); js.id = id;";
+    $par_return = $par_return."    js.src = \"//connect.facebook.net/nb_NO/sdk.js#xfbml=1&appId=396960107110328&version=v2.0\";";
+    $par_return = $par_return."    fjs.parentNode.insertBefore(js, fjs);";
+    $par_return = $par_return."}(document, 'script', 'facebook-jssdk'));</script>";
+
     //Ikke koblet til SC
     if (!isset($_SESSION['sc_token'])){
-        $par_return = $par_return."<center><a id=\"ken_connect\" href='$authURL'>Connect to SoundCloud</a></center><br>";
+        $par_return = $par_return."<center><a id=\"ken-remix-comp-connect\" href='$authURL'>Connect to SoundCloud</a></center><br>";
     }
     //Koblet til SC
     else {
@@ -85,7 +96,7 @@ function remixcomp_sc_connect( $atts ) {
         try {
 
             $me = json_decode($soundcloud->get('me'), true);
-            $par_return = $par_return."".$me[username]." logged in, <a href='?exit=t'>logout</a>.<br><br>";
+            $par_return = $par_return."".$me[username]." ".__('logged in','soundcloud-sound-competition').", <a href='?exit=t'>".__('logout','soundcloud-sound-competition')."</a>.<br><br>";
 
             //print_r($me);//Printer ut alle mulighetene man kan lagre av en bruker.
 
@@ -240,19 +251,26 @@ function remixcomp_sc_connect( $atts ) {
                         } //end if track id is post track id
                     }
                 } else {
-                    $par_error = "<div id='ken_nb_red'>Email not valid, please correct your email</div><br>";
+                    $par_error = "<div id='ken-remix-comp-nb-red'>".__('Email not valid, please correct your email','soundcloud-sound-competition')."</div><br>";
                 }
 
             }
 
             if ($par_db_ok == 1) {
-                $par_return = $par_return."<p>Your track is uploaded! Check out your track <br><a href='".$kenrmx_wpsc_entrees_page_url."?rmxid=".$par_track_id_uploaded."'>".$kenrmx_wpsc_entrees_page_url."?rmxid=".$par_track_id_uploaded."</a></p>";
+                $par_return = $par_return."<p>".__('Your sound is uploaded! The url to your sound is','soundcloud-sound-competition').":<br><a href='".$kenrmx_wpsc_entrees_page_url;
+                $par_return = $par_return."/"."sound/".$par_track_id_uploaded."'>".$kenrmx_wpsc_entrees_page_url;
+                $par_return = $par_return."/"."sound/".$par_track_id_uploaded."</a></p>";
+                $par_return = $par_return."".__('Share your sound','soundcloud-sound-competition').":<br>";
+                $par_return = $par_return."<div class='fb-share-button' data-href='".$kenrmx_wpsc_entrees_page_url;
+                $par_return = $par_return."/"."sound/".$par_track_id_uploaded."' data-type='button'></div><br><br>";
+                $par_return = $par_return."<p>".__('Back to','soundcloud-sound-competition')." <a href='".$kenrmx_wpsc_entrees_page_url;
+                $par_return = $par_return."'>".__('Competition Main Page','soundcloud-sound-competition')."</a></p>";
             }
             else {
                 //Utskrift av form
-                $par_return = $par_return."<form name='input' action='' method='POST'>";
-                $par_return = $par_return."<b>Your email</b> <font size='1'>(enter the remix-alert newsletter, we will contact you here if you win!)</font><br><input type='text' value='".htmlentities($_POST['email'])."' name='email' class='text'><br><br>";
-                $par_return = $par_return."<b>Select track</b><br><select class='text' name='trackid'>";
+                $par_return = $par_return."<form id='ken-remix-comp' name='input' action='' method='POST'>";
+                $par_return = $par_return."<input type='text' value='".htmlentities($_POST['email'])."' name='email' class='text' placeholder='Email address'><br><br>";
+                $par_return = $par_return."<b>".__('Select sound! The url to your sound is','soundcloud-sound-competition')."</b><br><select class='text' name='trackid'>";
                 foreach( $tracks as $track ) {
                     $par_return = $par_return."<option class='text' value='".$track['id']."'>".$track['title']."</option>";
                 }
@@ -260,9 +278,9 @@ function remixcomp_sc_connect( $atts ) {
                 if($par_error != ""){
                     $par_return = $par_return.$par_error;
                 }
-                $par_return = $par_return."<input type='submit' value='Submit' class='submit' />";
+                $par_return = $par_return."<input name='submit' type='submit' value='Submit' />";
                 $par_return = $par_return."</form>";
-                //print_r($tracks);//Printer ut alle mulighetene man har og kan lagre av en låt.                
+                //print_r($tracks);//Printer ut alle mulighetene man har og kan lagre av en låt.              
             }
 
 
@@ -270,10 +288,14 @@ function remixcomp_sc_connect( $atts ) {
             //Disconnect from SC
             session_destroy();
             unset($_SESSION['sc_token']);
-            _e("<div id='ken_nb_red'>Please refreash your browser</div><br>");
+            echo("<div id='ken-remix-comp-nb-red'>");
+            _e("Please refreash your browser","soundcloud-sound-competition");
+            echo("</div><br>");
         }
 
     }
-    $par_return = $par_return.get_remixcomp_stamper();
+    if( !soundcloud_sound_competition_ch_l() ):
+    $par_return = $par_return.get_remixcomp_st();
+    endif;
     return "{$par_return}";
 }

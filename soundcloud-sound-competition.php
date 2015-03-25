@@ -1,28 +1,13 @@
 <?php
 /*
 Plugin Name: SoundCloud Sound Competition
-Plugin URI: http://lightdigitalmedia.com/wordpress-plugins/soundcloud-sound-competition/
-Description: Host your own Sound Contest integrated with SoundCloud, users connect easy with SoundCloud to choose track to add to your competition. Everything within your WordPress web site.
+Plugin URI: http://lightdigitalmedia.com/wordpress-plugins/soundcloud-sound-competition
+Description: Host your own Sound Contest integrated with SoundCloud, users connect easy with SoundCloud to choose track to add to your competition.
 Version: 0.9.2.4
 Author: Kenneth Berentzen
-Author URI: http://lightdigitalmedia.com/
-License: Copyright 2012  Kenneth Berentzen  (email : berentzen@gmail.com)
-
-		This program is free software; you can redistribute it and/or modify
-		it under the terms of the GNU General Public License, version 2, as
-		published by the Free Software Foundation.
-
-		This program is distributed in the hope that it will be useful,
-		but WITHOUT ANY WARRANTY; without even the implied warranty of
-		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-		GNU General Public License for more details.
-
-		You should have received a copy of the GNU General Public License
-		along with this program; if not, write to the Free Software
-		Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+Author URI: http://lightdigitalmedia.com
+License: GPL2
 */
-
-
 
 global $wpdb;
 
@@ -30,6 +15,9 @@ global $wpdb;
 define( 'MYPLUGINNAME_PATH', plugin_dir_path(__FILE__) );
 
 //Add class functions
+require_once('Classes/class-admin-permalink.php');
+require_once('Classes/class-admin-l.php');
+require_once('Classes/class-admin-lic.php');
 require_once('Classes/class-helper-functions.php');
 require_once('Classes/class-installation.php');
 require_once('Classes/class-sc-connect.php');
@@ -41,6 +29,7 @@ require_once('Classes/class-admin-settings.php');
 add_action('activate_soundcloud-sound-competition/soundcloud-sound-competition.php', 'remixcomp_install');
 add_action('admin_menu', 'remixcomp_admin_actions');
 add_action('init', 'init_sessions');
+add_action('init', 'scsc_lang_ap_action_init');
 
 //Add shortcodes
 add_shortcode( 'soundcomp-add', 'remixcomp_sc_connect' );
