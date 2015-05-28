@@ -39,7 +39,7 @@ Once installed, the authorization process is easy:
 
 
 = Minimum Requirements =
-1. PHP 5.2 or higher (with [cURL](http://se2.php.net/curl) support)
+1. PHP 5.4 or higher (with [cURL](http://se2.php.net/curl) support)
 2. [A Soundcloud account](https://www.soundcloud.com/)
 
 
