@@ -34,7 +34,7 @@ function remixcomp_sc_connect( $atts ) {
     !is_array(get_option('ken_remixcomp_settings')) ? "" : extract(get_option('ken_remixcomp_settings'));
 
     //Variables
-    $par_redirectUrl = $kenrmx_sc_redirect_uri;
+    $par_redirectUrl = $kenrmx_wpsc_connect_page_url;
     $par_clientId = $kenrmx_sc_client_id;
     $par_clientSecret = $kenrmx_sc_client_secret;
     $par_development = false;
@@ -73,6 +73,67 @@ function remixcomp_sc_connect( $atts ) {
             echo(": ".$e->getMessage()."</div>");
         }
     }
+
+
+        //Get info data for presentation in popup
+        $info_id = url_to_postid( $kenrmx_wpsc_more_info_url );
+        $the_query = new WP_Query( array( 'post_type' => 'page', 'post__in' => array( $info_id ) ) );
+        $output = "";
+        while ( $the_query->have_posts() ) :
+        $the_query->the_post();
+        $info_titie = get_the_title();
+        $info_content = get_the_content();
+        endwhile;
+        wp_reset_postdata();
+
+        ?>
+
+        <!-- Bootstrap Jquery For popup and styling buttons -->
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css'>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+        <!-- Info box popup html -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel"><?php _e($info_titie); ?></h4>
+              </div>
+              <div class="modal-body">
+                <?php _e($info_content); ?>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Button Latest -->
+        <a title="<?php _e("Latest", "soundcloud-sound-competition");?>" style="float:right;margin-left:5px;" class="btn btn-default" 
+            href="<?php _e($kenrmx_wpsc_entrees_page_url.add_query_arg( array( 'sortid' => 1 ), $base_url )); ?>" role="button">
+        <img src="<?php _e(plugins_url('soundcloud-sound-competition/images/timei.png')); ?>"> 
+        <?php _e("Latest", "soundcloud-sound-competition");?></a>
+        <!-- Button Popular -->
+        <a title="<?php _e("Popular", "soundcloud-sound-competition");?>" style="float:right;margin-left:5px;" class="btn btn-default" 
+            href="<?php _e($kenrmx_wpsc_entrees_page_url.add_query_arg( array( 'sortid' => 2 ), $base_url )); ?>" role="button">
+        <img src="<?php _e(plugins_url('soundcloud-sound-competition/images/stari.png')); ?>"> 
+        <?php _e("Popular", "soundcloud-sound-competition");?></a>
+        <!-- Button Info -->
+        <button title="<?php _e("Info", "soundcloud-sound-competition");?>" style="float:right;margin-left:5px;" type="button" 
+            class="btn btn-default" data-toggle="modal" data-target="#myModal">
+          <img src="<?php _e(plugins_url('soundcloud-sound-competition/images/infoi.png')); ?>"> <?php _e("Info", "soundcloud-sound-competition");?>
+        </button>
+        <!-- Button Upload -->
+        <a title="<?php _e("Contest", "soundcloud-sound-competition");?>" style="float:right;margin-left:5px;" class="btn btn-default" 
+            href="<?php _e($kenrmx_wpsc_entrees_page_url); ?>" role="button">
+        <img src="<?php _e(plugins_url('soundcloud-sound-competition/images/sc.png')); ?>"> 
+        <?php _e("Contest", "soundcloud-sound-competition");?></a>
+
+        <div id='ken-remix-comp-clear'></div><br/>     
+        <?php
 
 
     $par_return = "<link rel='stylesheet' href='".plugins_url('soundcloud-sound-competition/css/style.css')."' />";
@@ -270,7 +331,7 @@ function remixcomp_sc_connect( $atts ) {
                 //Utskrift av form
                 $par_return = $par_return."<form id='ken-remix-comp' name='input' action='' method='POST'>";
                 $par_return = $par_return."<input type='text' value='".htmlentities($_POST['email'])."' name='email' class='text' placeholder='Email address'><br><br>";
-                $par_return = $par_return."<b>".__('Select sound! The url to your sound is','soundcloud-sound-competition')."</b><br><select class='text' name='trackid'>";
+                $par_return = $par_return."<b>".__('Select sound:','soundcloud-sound-competition')."</b><br><select class='text' name='trackid'>";
                 foreach( $tracks as $track ) {
                     $par_return = $par_return."<option class='text' value='".$track['id']."'>".$track['title']."</option>";
                 }
@@ -278,7 +339,7 @@ function remixcomp_sc_connect( $atts ) {
                 if($par_error != ""){
                     $par_return = $par_return.$par_error;
                 }
-                $par_return = $par_return."<input name='submit' type='submit' value='Submit' />";
+                $par_return = $par_return."<input name='submit' class='btn btn-primary btn-lg' type='submit' value='Submit' />";
                 $par_return = $par_return."</form>";
                 //print_r($tracks);//Printer ut alle mulighetene man har og kan lagre av en låt.              
             }

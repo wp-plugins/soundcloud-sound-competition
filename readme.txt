@@ -3,8 +3,8 @@ Contributors: canitb
 Tags: facebook, api, soundcloud, sound, remix, competition, comp, host, integration, marketing, socialmarketing
 Donate link: http://lightdigitalmedia.com/wordpress-plugins/soundcloud-sound-competition/
 Requires at least: 3.0
-Tested up to: 5.0
-Stable tag: trunk
+Tested up to: 4.2
+Stable tag: 1.0.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -86,6 +86,11 @@ Just replace the new plugin files.
 
 
 == Changelog ==
+
+= 1.0.1.0 =
+* Added Info showing on the same page function.
+* Changed buttons.
+
 
 = 1.0.0.1 =
 * Added license function.

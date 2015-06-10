@@ -64,7 +64,35 @@ function remixcomp_settings() {
     <form action="?page=<?php echo $_GET['page']; ?>" method="POST">
 
     <div class="tabs">
-        
+
+        <div class="tab">
+           <input type="radio" id="tab-3" name="tab-group-1">
+           <label for="tab-3"><strong><?php _e('Contest','soundcloud-sound-competition'); ?></strong></label>
+         
+           <div class="content">
+                <p>
+                <h3><?php _e('Current Contest Page','soundcloud-sound-competition'); ?></h3>
+                <div style="color:#999;"><?php _e('Unique current contest name','soundcloud-sound-competition'); ?>: <!--img src="icon-questionmark-small.gif"--></div>
+                <input title="If you wanto make a new remix competition you would make a new name here. Only for internal purposes in the admin contest list. Example -> mycomp1" type="text" size="60" name="kenrmx_sc_remix_type" value="<?php echo $kenrmx_sc_remix_type; ?>"/><br><br>
+                
+                <div style="color:#999;"><?php _e('WordPress List Entrees Page URL','soundcloud-sound-competition'); ?>:</div>
+                <input type="text" size="60" name="kenrmx_wpsc_entrees_page_url" value="<?php echo $kenrmx_wpsc_entrees_page_url; ?>"/><br>
+                <input type="text" title="Place this shortcode on the page/url just above this text" size="40" onclick="this.focus();this.select()" readonly="readonly" value="[soundcomp-entrees type='<?php echo $kenrmx_sc_remix_type; ?>']"/><br><br>
+                
+                <div style="color:#999;"><?php _e('More information Page/Post URL','soundcloud-sound-competition'); ?>:</div>
+                <input type="text" size="60" name="kenrmx_wpsc_more_info_url" value="<?php echo $kenrmx_wpsc_more_info_url; ?>"/><br><br>
+                
+                <div style="color:#999;"><?php _e('Entries preview type','soundcloud-sound-competition'); ?>:</div>
+                <select name="kenrmx_wpsc_preview_type">
+                    <option value="<?php echo $kenrmx_wpsc_preview_type; ?>"><?php echo $kenrmx_wpsc_preview_type; ?></option>
+                    <option value="Image_list"><?php _e('Image list (profile pictures from entrees side by side)','soundcloud-sound-competition'); ?></option>
+                    <option value="Sound_list"><?php _e('Sound list (more detail and preview in the list)','soundcloud-sound-competition'); ?></option>
+                </select><br><br>
+                <input id="submit" class="button button-primary" type="submit" value="Save Changes" name="submit"></input>
+                </p>
+           </div> 
+       </div>
+
        <div class="tab">
            <input type="radio" id="tab-1" name="tab-group-1" checked>
            <label for="tab-1"><strong><?php _e('SoundCloud','soundcloud-sound-competition'); ?></strong></label>
@@ -72,14 +100,19 @@ function remixcomp_settings() {
            <div class="content">
                 <p>
                 <h3><?php _e('Soundcloud Account Details','soundcloud-sound-competition'); ?></h3>
-                <div style="color:#999;"><?php _e('Soundcloud Redirect URI','soundcloud-sound-competition'); ?>:</div>
-                <input type="text" size="60" name="kenrmx_sc_redirect_uri" value="<?php echo $kenrmx_sc_redirect_uri; ?>"/><br><br>
+                
+                <div style="color:#999;"><?php _e('WordPress SoundCloud Connect Page URL','soundcloud-sound-competition'); ?>:</div>
+                <input type="text" size="60" name="kenrmx_wpsc_connect_page_url" value="<?php echo $kenrmx_wpsc_connect_page_url; ?>"/><br>
+                <input type="text" title="Place this shortcode on the page/url just above this text" size="40" onclick="this.focus();this.select()" readonly="readonly" value="[soundcomp-add]"/><br><br>
+
+                <!--div style="color:#999;"><?php _e('Soundcloud Redirect URI','soundcloud-sound-competition'); ?>:</div>
+                <input type="text" size="60" name="kenrmx_sc_redirect_uri" value="<?php echo $kenrmx_sc_redirect_uri; ?>"/><br><br-->
+                
                 <div style="color:#999;"><?php _e('Soundcloud Client ID','soundcloud-sound-competition'); ?>:</div>
                 <input type="text" size="60" name="kenrmx_sc_client_id" value="<?php echo $kenrmx_sc_client_id; ?>"/><br><br>
                 <div style="color:#999;"><?php _e('Soundcloud Client Secret','soundcloud-sound-competition'); ?>:</div>
                 <input type="text" size="60" name="kenrmx_sc_client_secret" value="<?php echo $kenrmx_sc_client_secret; ?>"/><br><br>
-                <div style="color:#999;"><?php _e('Comp database name','soundcloud-sound-competition'); ?>: <!--img src="icon-questionmark-small.gif"--></div>
-                <input title="If you wanto make a new remix competition you would make a new name here. Only for internal purposes in the admin contest list. Example -> mycomp1" type="text" size="60" name="kenrmx_sc_remix_type" value="<?php echo $kenrmx_sc_remix_type; ?>"/><br><br>
+
                 <input id="submit" class="button button-primary" type="submit" value="Save Changes" name="submit"></input>
                 </p>
            </div> 
@@ -105,35 +138,6 @@ function remixcomp_settings() {
                   <input type="text" size="60" name="kenrmx_facebook_app_secret" value="<?php echo $kenrmx_facebook_app_secret; ?>"/><br><br>
                   <input id="submit" class="button button-primary" type="submit" value="Save Changes" name="submit"></input>
                 <?php else:  _e(get_remixcomp_admin_kjop_l_m()); endif; ?>
-                </p>
-           </div> 
-       </div>
-        
-        <div class="tab">
-           <input type="radio" id="tab-3" name="tab-group-1">
-           <label for="tab-3"><strong><?php _e('Contest','soundcloud-sound-competition'); ?></strong></label>
-         
-           <div class="content">
-                <p>
-                <h3><?php _e('Current Contest Page','soundcloud-sound-competition'); ?></h3>
-                <div style="color:#999;"><?php _e('WordPress SoundCloud Connect Page URL','soundcloud-sound-competition'); ?>:</div>
-                <input type="text" size="60" name="kenrmx_wpsc_connect_page_url" value="<?php echo $kenrmx_wpsc_connect_page_url; ?>"/><br>
-                <input type="text" title="Place this shortcode on the page/url just above this text" size="40" onclick="this.focus();this.select()" readonly="readonly" value="[soundcomp-add]"/><br><br>
-                
-                <div style="color:#999;"><?php _e('WordPress List Entrees Page URL','soundcloud-sound-competition'); ?>:</div>
-                <input type="text" size="60" name="kenrmx_wpsc_entrees_page_url" value="<?php echo $kenrmx_wpsc_entrees_page_url; ?>"/><br>
-                <input type="text" title="Place this shortcode on the page/url just above this text" size="40" onclick="this.focus();this.select()" readonly="readonly" value="[soundcomp-entrees type='<?php echo $kenrmx_sc_remix_type; ?>']"/><br><br>
-                
-                <div style="color:#999;"><?php _e('More information Page/Post URL','soundcloud-sound-competition'); ?>:</div>
-                <input type="text" size="60" name="kenrmx_wpsc_more_info_url" value="<?php echo $kenrmx_wpsc_more_info_url; ?>"/><br><br>
-                
-                <div style="color:#999;"><?php _e('Entries preview type','soundcloud-sound-competition'); ?>:</div>
-                <select name="kenrmx_wpsc_preview_type">
-                    <option value="<?php echo $kenrmx_wpsc_preview_type; ?>"><?php echo $kenrmx_wpsc_preview_type; ?></option>
-                    <option value="Image_list"><?php _e('Image list (profile pictures from entrees side by side)','soundcloud-sound-competition'); ?></option>
-                    <option value="Sound_list"><?php _e('Sound list (more detail and preview in the list)','soundcloud-sound-competition'); ?></option>
-                </select><br><br>
-                <input id="submit" class="button button-primary" type="submit" value="Save Changes" name="submit"></input>
                 </p>
            </div> 
        </div>

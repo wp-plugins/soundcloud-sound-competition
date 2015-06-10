@@ -1,12 +1,12 @@
 <?php
-/**
- * Plugin Name: SoundCloud Sound Competition
- * Plugin URI: http://lightdigitalmedia.com/wordpress-plugins/soundcloud-sound-competition
- * Description: Host your own Sound Contest integrated with SoundCloud and Facebook voting.
- * Version: 1.0.0.1
- * Author: Kenneth Berentzen
- * Author URI: http://lightdigitalmedia.com
- * License: GPL2
+/*
+ Plugin Name: SoundCloud Sound Competition
+ Plugin URI: http://lightdigitalmedia.com/wordpress-plugins/soundcloud-sound-competition
+ Description: Host your own Sound Contest integrated with SoundCloud and Facebook voting.
+ Version: 1.0.1.0
+ Author: Kenneth Berentzen
+ Author URI: http://lightdigitalmedia.com
+ License: GPL2 or later
  */
 
 global $wpdb;

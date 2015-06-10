@@ -155,10 +155,71 @@ function remixcomp_remixers( $atts, $remixer_id ) {
             } //End sjekk om har votet
         } //End voting_rmx if
         
+
+        //Get info data for presentation in popup
+        $info_id = url_to_postid( $kenrmx_wpsc_more_info_url );
+        $the_query = new WP_Query( array( 'post_type' => 'page', 'post__in' => array( $info_id ) ) );
+        $output = "";
+        while ( $the_query->have_posts() ) :
+        $the_query->the_post();
+        $info_titie = get_the_title();
+        $info_content = get_the_content();
+        endwhile;
+        wp_reset_postdata();
+
+        ?>
+
+        <!-- Bootstrap Jquery For popup and styling buttons -->
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css'>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+
+        <!-- Info box popup html -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel"><?php _e($info_titie); ?></h4>
+              </div>
+              <div class="modal-body">
+                <?php _e($info_content); ?>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Button Latest -->
+        <a title="<?php _e("Latest", "soundcloud-sound-competition");?>" style="float:right;margin-left:5px;" class="btn btn-default" 
+            href="<?php _e($kenrmx_wpsc_entrees_page_url.add_query_arg( array( 'sortid' => 1 ), $base_url )); ?>" role="button">
+        <img src="<?php _e(plugins_url('soundcloud-sound-competition/images/timei.png')); ?>"> 
+        <?php _e("Latest", "soundcloud-sound-competition");?></a>
+        <!-- Button Popular -->
+        <a title="<?php _e("Popular", "soundcloud-sound-competition");?>" style="float:right;margin-left:5px;" class="btn btn-default" 
+            href="<?php _e($kenrmx_wpsc_entrees_page_url.add_query_arg( array( 'sortid' => 2 ), $base_url )); ?>" role="button">
+        <img src="<?php _e(plugins_url('soundcloud-sound-competition/images/stari.png')); ?>"> 
+        <?php _e("Popular", "soundcloud-sound-competition");?></a>
+        <!-- Button Info -->
+        <button title="<?php _e("Info", "soundcloud-sound-competition");?>" style="float:right;margin-left:5px;" type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">
+          <img src="<?php _e(plugins_url('soundcloud-sound-competition/images/infoi.png')); ?>"> <?php _e("Info", "soundcloud-sound-competition");?>
+        </button>
+        <!-- Button Upload -->
+        <a title="<?php _e("Upload", "soundcloud-sound-competition");?>" style="float:right;margin-left:5px;" class="btn btn-default" href="<?php _e($kenrmx_wpsc_connect_page_url); ?>" role="button">
+        <img src="<?php _e(plugins_url('soundcloud-sound-competition/images/sc.png')); ?>"> 
+        <?php _e("Upload", "soundcloud-sound-competition");?></a>
+
+        
+        <?php
+        //Right reset after buttons alignment
+        echo("<div id='ken-remix-comp-clear'></div>");
+
         echo("<br><link rel='stylesheet' href='".plugins_url('soundcloud-sound-competition/css/style.css')."' />");
         //echo($session_ip."-".$session."<br>");
-        
-        echo("<div style=\"float:right;\"><a id=\"ken-remix-comp-upload\" href='$kenrmx_wpsc_connect_page_url'>Upload</a> <a id=\"ken-remix-comp-info\" href='$kenrmx_wpsc_more_info_url'>Info</a></div><div id='ken-remix-comp-clear'></div>");
         
         //Hvis det kommer en rmx id så skal låten vises
         //------------------------------------------------------------------------------------------
@@ -233,7 +294,6 @@ function remixcomp_remixers( $atts, $remixer_id ) {
         
         }//End if remix_id
         
-        echo("<div style=\"float:right;\"><a id=\"ken-remix-comp-latest\" href='".add_query_arg( array( 'sortid' => 1 ), $base_url )."'>Latest uploads</a> <a id=\"ken-remix-comp-rated\" href='".add_query_arg( array( 'sortid' => 2 ), $base_url )."'>Highest rated</a></div><div id=\"ken-remix-comp-clear\"></div>");
         
         /***************************************************************************************
                                         LIST ALL
@@ -310,6 +370,7 @@ function remixcomp_remixers( $atts, $remixer_id ) {
             fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));</script>
             <div id='ken-remix-comp-clear'></div>
+
         <?php 
         if( !soundcloud_sound_competition_ch_l() ): 
             echo( get_remixcomp_st() );
