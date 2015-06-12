@@ -4,7 +4,7 @@ Tags: facebook, api, soundcloud, sound, remix, competition, comp, host, integrat
 Donate link: http://lightdigitalmedia.com/wordpress-plugins/soundcloud-sound-competition/
 Requires at least: 3.0
 Tested up to: 4.2
-Stable tag: 1.0.1.0
+Stable tag: 1.0.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -70,9 +70,12 @@ Just replace the new plugin files.
 
 
 == Frequently Asked Questions ==
-1.  Question: What does the star in the admin panel do?
-    Answer: The stars has no specific function other than for the admin to mark the potential winners for a competition. 
+1.  Question: What does the star in the admin panel do ?
+* Answer: The stars has no specific function other than for the admin to mark the potential winners for a competition. 
 
+2. Question: I get the error "plugin doesn't have a valid header" during installation ?
+* Answer: Try to go back to the plugins list and activate the plugin from there itself, that usually works. 
+(I´m not sure why this error appears, while it works with this workaround, if anyone tech savy people knows the solution please let me know )
 
 
 == Screenshots ==
@@ -87,9 +90,15 @@ Just replace the new plugin files.
 
 == Changelog ==
 
+= 1.0.1.1 =
+* Bug fixes in the Modal vindow Info.
+
+
 = 1.0.1.0 =
 * Added Info showing on the same page function.
 * Changed buttons.
+* Logic rearrangment in admin.
+* General Bug fixes.
 
 
 = 1.0.0.1 =

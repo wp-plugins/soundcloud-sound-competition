@@ -159,10 +159,9 @@ function remixcomp_remixers( $atts, $remixer_id ) {
         //Get info data for presentation in popup
         $info_id = url_to_postid( $kenrmx_wpsc_more_info_url );
         $the_query = new WP_Query( array( 'post_type' => 'page', 'post__in' => array( $info_id ) ) );
-        $output = "";
         while ( $the_query->have_posts() ) :
         $the_query->the_post();
-        $info_titie = get_the_title();
+        $info_title = get_the_title();
         $info_content = get_the_content();
         endwhile;
         wp_reset_postdata();
@@ -174,24 +173,34 @@ function remixcomp_remixers( $atts, $remixer_id ) {
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
-
-        <!-- Info box popup html -->
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel"><?php _e($info_titie); ?></h4>
-              </div>
-              <div class="modal-body">
-                <?php _e($info_content); ?>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              </div>
-            </div>
-          </div>
-        </div>
+        <!-- Info box popup html added to the beginning of the body JSON.parse(); -->
+        <script>
+        var_info_title = '<?php echo json_encode($info_title); ?>';
+        var_info_content = '<?php echo json_encode($info_content); ?>';
+        var_info_title = var_info_title.replace(/^\"/, '');
+        var_info_title = var_info_title.replace(/\"$/, '');
+        var_info_content = var_info_content.replace(/^\"/, '');
+        var_info_content = var_info_content.replace(/\"$/, '');
+        jQuery(document).ready( function($) {
+            $('body').prepend( 
+                '<div style="margin-top:100px;" class="modal fade" id="myInformationModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">'+
+                '<div class="modal-dialog">'+
+                '<div class="modal-content">'+
+                '<div class="modal-header">'+
+                '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>'+
+                '<h4 class="modal-title" id="myModalLabel">'+var_info_title+'</h4>'+
+                '</div>'+
+                '<div class="modal-body">'+
+                var_info_content+
+                '</div>'+
+                '<div class="modal-footer">'+
+                '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>'+
+                '</div>'+
+                '</div>'+
+                '</div>'+
+                '</div>') ;
+        } );
+        </script>
 
 
         <!-- Button Latest -->
@@ -205,7 +214,7 @@ function remixcomp_remixers( $atts, $remixer_id ) {
         <img src="<?php _e(plugins_url('soundcloud-sound-competition/images/stari.png')); ?>"> 
         <?php _e("Popular", "soundcloud-sound-competition");?></a>
         <!-- Button Info -->
-        <button title="<?php _e("Info", "soundcloud-sound-competition");?>" style="float:right;margin-left:5px;" type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">
+        <button title="<?php _e("Info", "soundcloud-sound-competition");?>" style="float:right;margin-left:5px;" type="button" class="btn btn-default" data-toggle="modal" data-target="#myInformationModal">
           <img src="<?php _e(plugins_url('soundcloud-sound-competition/images/infoi.png')); ?>"> <?php _e("Info", "soundcloud-sound-competition");?>
         </button>
         <!-- Button Upload -->
