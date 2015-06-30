@@ -90,8 +90,12 @@ Just replace the new plugin files.
 
 == Changelog ==
 
+= 1.0.1.2 =
+* Important Bug fixes, saving issue, Modal window Info.
+
+
 = 1.0.1.1 =
-* Bug fixes in the Modal vindow Info.
+* Bug fixes in the Modal window Info.
 
 
 = 1.0.1.0 =
