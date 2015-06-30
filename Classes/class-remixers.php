@@ -157,7 +157,7 @@ function remixcomp_remixers( $atts, $remixer_id ) {
         
 
         //Get info data for presentation in popup
-        $info_id = url_to_postid( $kenrmx_wpsc_more_info_url );
+        $info_id = helper_get_page_id( $kenrmx_wpsc_more_info_url );
         $the_query = new WP_Query( array( 'post_type' => 'page', 'post__in' => array( $info_id ) ) );
         while ( $the_query->have_posts() ) :
         $the_query->the_post();

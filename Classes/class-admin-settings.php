@@ -34,7 +34,7 @@ function remixcomp_settings() {
     _e('Settings','soundcloud-sound-competition');
     echo('</h2>');
 
-    if($_POST['kenrmx_sc_redirect_uri']) {
+    if($_POST['check_post'] == "true") {
         //Setting variables
         $ken_settings = array(
             'kenrmx_sc_redirect_uri' => $_POST['kenrmx_sc_redirect_uri'], 
@@ -66,12 +66,15 @@ function remixcomp_settings() {
     <div class="tabs">
 
         <div class="tab">
-           <input type="radio" id="tab-3" name="tab-group-1">
-           <label for="tab-3"><strong><?php _e('Contest','soundcloud-sound-competition'); ?></strong></label>
+           <input type="radio" id="tab-1" name="tab-group-1" checked>
+           <label for="tab-1"><strong><?php _e('Contest','soundcloud-sound-competition'); ?></strong></label>
          
            <div class="content">
                 <p>
                 <h3><?php _e('Current Contest Page','soundcloud-sound-competition'); ?></h3>
+                
+                <input type="hidden" name="check_post" value="true"/>
+
                 <div style="color:#999;"><?php _e('Unique current contest name','soundcloud-sound-competition'); ?>: <!--img src="icon-questionmark-small.gif"--></div>
                 <input title="If you wanto make a new remix competition you would make a new name here. Only for internal purposes in the admin contest list. Example -> mycomp1" type="text" size="60" name="kenrmx_sc_remix_type" value="<?php echo $kenrmx_sc_remix_type; ?>"/><br><br>
                 
@@ -94,8 +97,8 @@ function remixcomp_settings() {
        </div>
 
        <div class="tab">
-           <input type="radio" id="tab-1" name="tab-group-1" checked>
-           <label for="tab-1"><strong><?php _e('SoundCloud','soundcloud-sound-competition'); ?></strong></label>
+           <input type="radio" id="tab-2" name="tab-group-1">
+           <label for="tab-2"><strong><?php _e('SoundCloud','soundcloud-sound-competition'); ?></strong></label>
            
            <div class="content">
                 <p>
@@ -104,9 +107,6 @@ function remixcomp_settings() {
                 <div style="color:#999;"><?php _e('WordPress SoundCloud Connect Page URL','soundcloud-sound-competition'); ?>:</div>
                 <input type="text" size="60" name="kenrmx_wpsc_connect_page_url" value="<?php echo $kenrmx_wpsc_connect_page_url; ?>"/><br>
                 <input type="text" title="Place this shortcode on the page/url just above this text" size="40" onclick="this.focus();this.select()" readonly="readonly" value="[soundcomp-add]"/><br><br>
-
-                <!--div style="color:#999;"><?php _e('Soundcloud Redirect URI','soundcloud-sound-competition'); ?>:</div>
-                <input type="text" size="60" name="kenrmx_sc_redirect_uri" value="<?php echo $kenrmx_sc_redirect_uri; ?>"/><br><br-->
                 
                 <div style="color:#999;"><?php _e('Soundcloud Client ID','soundcloud-sound-competition'); ?>:</div>
                 <input type="text" size="60" name="kenrmx_sc_client_id" value="<?php echo $kenrmx_sc_client_id; ?>"/><br><br>
@@ -119,8 +119,8 @@ function remixcomp_settings() {
        </div>
         
        <div class="tab">
-           <input type="radio" id="tab-2" name="tab-group-1">
-           <label for="tab-2"><strong><?php _e('Facebook','soundcloud-sound-competition'); ?></strong></label>
+           <input type="radio" id="tab-3" name="tab-group-1">
+           <label for="tab-3"><strong><?php _e('Facebook','soundcloud-sound-competition'); ?></strong></label>
            
            <div class="content">
                 <p>

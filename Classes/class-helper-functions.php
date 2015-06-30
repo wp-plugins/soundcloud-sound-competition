@@ -8,6 +8,13 @@ Author URI: http://lightdigitalmedia.com/
 License: Copyright 2014  Kenneth Berentzen  (email : post@lightdigitalmedia.com)
 */
 
+// retrieves the attachment ID from the file URL
+function helper_get_page_id($url) {
+    global $wpdb;
+    $attachment = $wpdb->get_col($wpdb->prepare("SELECT ID FROM $wpdb->posts WHERE `post_type`='page' AND '%s' LIKE CONCAT('%s', post_name, '%s') ORDER BY ID DESC;", $url, '%', '%' )); 
+    return $attachment[0]; 
+}
+
 function set_visitor_voted($voting_rmx, $remix_db_slug, $session_ip, $session, $session_user_agent) {
     global $wpdb;
 
